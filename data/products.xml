@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<products>
+  <product price="1000" amount="5">
+    <book title="Приключения Тома Сойера" genre = "жанр" author="Марк Твен"/>
+  </product>
+  <product price="1100" amount="1">
+    <book title="Воспоминания Шерлока Холмса" genre = "жанрельман" author="Артур Конан Дойль"/>
+  </product>
+  <product price="500" amount="2">
+    <film title="Turbo" year="1980" producer="Виктор Дудка"/>
+  </product>
+  <product price="350" amount="3">
+    <film title="Пролетая над грездом кукушки" year="1975" producer="Милош Форман"/>
+  </product>
+</products>
