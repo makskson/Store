@@ -60,10 +60,22 @@ class Product
 
   def self.buy_offer(products)
     puts 'Что бы вы хотели купить?'
-    products.each do |item|
-      puts "#{products.index(item)}. #{item}"
+    products.each_with_index do |product, index|
+      puts "#{index}. #{product}"
     end
     puts 'x. Выход'
-    mode = STDIN.gets.chomp
+    mode = STDIN.gets.chomp.to_i
+    abort unless mode != 'x'
+    products[mode]
+  end
+
+  def buy
+    if @amount.positive?
+      puts '* * *'
+      puts "Вы купили товар #{}"
+      puts '* * *'
+    else
+      puts 'Извините, нет в наличии'
+    end
   end
 end

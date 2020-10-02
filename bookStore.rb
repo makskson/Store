@@ -6,4 +6,4 @@ require_relative 'Book'
 require_relative 'ProductCollection'
 
 products = Product.read_from_xml("products.xml")
-puts Product.buy_offer(products)
+Product.buy_offer(products).buy
