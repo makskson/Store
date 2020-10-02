@@ -1,8 +1,7 @@
 require_relative 'Product'
 class Film < Product
-
   attr_reader(:title, :year, :producer)
-
+  attr_writer :title, :year, :producer
 
   def initialize(params)
     super
@@ -15,18 +14,6 @@ class Film < Product
     "Фильм #{@title}, #{@year}, продюссер #{@producer}, #{super}"
   end
 
-  def title=(title)
-    @title = title
-  end
-
-  def year=(year)
-    @year = year
-  end
-
-  def producer=(producer)
-    @producer = producer
-  end
-
   def update(params)
     super
     @title = params[:title] if params[:title]
@@ -35,13 +22,13 @@ class Film < Product
   end
 
   def self.from_file(file_path)
-    lines = File.readlines(file_path, encoding: 'UTF-8').map { |l| l.chomp }
-    self.new(
-        title: lines[0],
-        producer: lines[1],
-        year: lines[2].to_i,
-        price: lines[3].to_i,
-        amount: lines[4].to_i
+    lines = File.readlines(file_path, encoding: 'UTF-8').map(&:chomp)
+    new(
+      title: lines[0],
+      producer: lines[1],
+      year: lines[2].to_i,
+      price: lines[3].to_i,
+      amount: lines[4].to_i
     )
   end
 end

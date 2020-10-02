@@ -2,9 +2,9 @@ require_relative 'Film'
 require_relative 'Book'
 class ProductCollection
   PRODUCT_TYPES = {
-    film: {dir: 'films', class: Film},
-    book: {dir: 'books', class: Book}
-  }
+    film: { dir: 'films', class: Film },
+    book: { dir: 'books', class: Book }
+  }.freeze
 
   def initialize(products = [])
     @products = products
@@ -33,7 +33,7 @@ class ProductCollection
 
     # Вызываем конструктор этого же класса (ProductCollection) и передаем ему
     # заполненный массив продуктов
-    self.new(products)
+    new(products)
   end
 
   def to_a

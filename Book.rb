@@ -1,6 +1,8 @@
 require_relative 'Product'
 class Book < Product
-  attr_reader(:title, :genre, :author)
+  attr_reader :title, :genre, :author
+  attr_writer :title, :genre, :author
+
   def initialize(params)
     super
     @title = params[:title]
@@ -12,18 +14,6 @@ class Book < Product
     "Книга \"#{@title}\", #{@genre}, автор - #{@author}, #{super}"
   end
 
-  def title=(title)
-    @title = title
-  end
-
-  def genre=(genre)
-    @genre = genre
-  end
-
-  def author=(author)
-    @author = author
-  end
-
   def update(params)
     super
     @title = params[:title] if params[:title]
@@ -32,13 +22,13 @@ class Book < Product
   end
 
   def self.from_file(file_path)
-    lines = File.readlines(file_path, encoding: 'UTF-8').map { |l| l.chomp }
-    self.new(
-        title: lines[0],
-        genre: lines[1],
-        author: lines[2],
-        price: lines[3].to_i,
-        amount: lines[4].to_i
+    lines = File.readlines(file_path, encoding: 'UTF-8').map(&:chomp)
+    new(
+      title: lines[0],
+      genre: lines[1],
+      author: lines[2],
+      price: lines[3].to_i,
+      amount: lines[4].to_i
     )
   end
 
