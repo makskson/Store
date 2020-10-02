@@ -1,3 +1,4 @@
+require_relative 'Product'
 class Book < Product
   attr_reader(:title, :genre, :author)
   def initialize(params)

@@ -1,3 +1,4 @@
+require_relative 'Product'
 class Film < Product
 
   attr_reader(:title, :year, :producer)

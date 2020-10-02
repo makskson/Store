@@ -73,4 +73,12 @@ class Product
     result
   end
 
+  def self.buy_offer(products)
+    puts "Что бы вы хотели купить?"
+    products.each do |item|
+      puts "#{products.index(item)}. #{item}"
+    end
+    puts "x. Выход"
+    mode = STDIN.gets.chomp
+  end
 end

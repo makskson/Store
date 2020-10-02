@@ -1,7 +1,9 @@
+require_relative 'Film'
+require_relative 'Book'
 class ProductCollection
   PRODUCT_TYPES = {
-      film: {dir: 'films', class: Film},
-      book: {dir: 'books', class: Book}
+    film: {dir: 'films', class: Film},
+    book: {dir: 'books', class: Book}
   }
 
   def initialize(products = [])
